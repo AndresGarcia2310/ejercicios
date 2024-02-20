@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ejercicio 1</h2>
+    <script>
+        function mostrarDatos() {
+            var nombreUsuario = document.getElementById("nombre").value;
+            var emailUsuario = document.getElementById("email").value;
+
+            var tabla = "<table>";
+            tabla += "<tr><th>Nombre</th><th>Email</th></tr>";
+            tabla += "<tr><td>" + nombreUsuario + "</td><td>" + emailUsuario + "</td></tr>";
+            tabla += "</table>";
+
+            document.body.innerHTML += tabla;
+        }
+    </script>
+
+    <h2>Ingrese sus datos</h2>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Ingrese su nombre"><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Ingrese su email"><br>
+
+    <button onclick="mostrarDatos()">Mostrar Datos</button>
+
+    
+    <h2>Ejercicio 2</h2>
+    <script>
+        function obtenerCalificacion() {
+            
+            var nota = (document.getElementById("nota").value);
+
+            
+            if (nota >= 0 && nota <= 10) {
+                var calificacion = "";
+                if (nota >= 9) {
+                    calificacion = "Sobresaliente";
+                } else if (nota >= 7) {
+                    calificacion = "Notable";
+                } else if (nota >= 5) {
+                    calificacion = "Bien";
+                } else {
+                    calificacion = "Suspenso";
+                }
+
+                alert("Tu calificación es: " + calificacion);
+            } else {
+                alert("Ingrese una nota válida (entre 0 y 10).");
+            }
+        }
+    </script>
+
+    <h2>Dime tu nota</h2>
+    <label for="nota">Nota:</label>
+    <input type="number" id="nota" placeholder="Ingrese su nota"><br>
+
+    <button onclick="obtenerCalificacion()">Tu nota</button>
+
+
+    <h2>Ejercicio 3</h2>
+    <script>
+        function verificarNumeros() {
+            // Obtener los valores ingresados por el usuario
+            var numero1 = (document.getElementById("numero1").value);
+            var numero2 = (document.getElementById("numero2").value);
+            var numero3 = (document.getElementById("numero3").value);
+
+            if (numero1 < 10 || numero2 < 10 || numero3 < 10) {
+                document.getElementById("resultado").innerHTML = "Alguno de los números es menor a diez";
+            } else {
+                document.getElementById("resultado").innerHTML = "";
+            }
+        }
+    </script>
+
+    <h2>Dime tres números</h2>
+    <label for="numero1">Número 1:</label>
+    <input type="number" id="numero1" placeholder="Ingrese el primer número"><br>
+
+    <label for="numero2">Número 2:</label>
+    <input type="number" id="numero2" placeholder="Ingrese el segundo número"><br>
+
+    <label for="numero3">Número 3:</label>
+    <input type="number" id="numero3" placeholder="Ingrese el tercer número"><br>
+
+    <button onclick="verificarNumeros()">Verificar Números</button>
+
+    <p id="resultado"></p>
+</body>
+</html>
